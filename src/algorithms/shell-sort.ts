@@ -16,9 +16,10 @@ async function shellSort(draft: Element[]) {
 
   while (gap > 0) {
     for (let i = gap; i < n; i++) {
-      let j = i;
+      const aux = getBarValue(draft[i]);
 
-      while (j >= gap && getBarValue(draft[j - gap]) > getBarValue(draft[i])) {
+      let j = i;
+      while (j >= gap && getBarValue(draft[j - gap]) > aux) {
         [draft[j], draft[j - gap]] = [draft[j - gap], draft[j]];
 
         draft[j].setAttribute("data-type", "swap");
