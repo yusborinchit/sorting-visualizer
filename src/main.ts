@@ -1,4 +1,5 @@
 import { animateBubbleSort } from "./algorithms/bubble-sort";
+import { animateCountingSort } from "./algorithms/counting-sort";
 import { animateHeapSort } from "./algorithms/heap-sort";
 import { animateInsertionSort } from "./algorithms/insertion-sort";
 import { animateMergeSort } from "./algorithms/merge-sort";
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       quick: animateQuickSort,
       insertion: animateInsertionSort,
       heap: animateHeapSort,
+      counting: animateCountingSort,
     };
 
     $range_length.disabled = true;
