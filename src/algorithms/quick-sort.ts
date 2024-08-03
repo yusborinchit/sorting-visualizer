@@ -1,5 +1,6 @@
 import { state } from "../state";
 import { delay } from "../utils/delay";
+import { getBarValue } from "../utils/get-bar-value";
 
 export async function animateQuickSort() {
   const { $bars } = state;
@@ -18,21 +19,15 @@ async function quickSort(draft: Element[], low: number, high: number) {
   }
 }
 
-function median(values: number[]): number {
-  values.sort((a, b) => a - b);
-  return values[1];
-}
-
 async function partition(draft: Element[], low: number, high: number) {
   const { $bars, delay_ms } = state;
 
-  const pivotElement = draft[high];
-  const pivotValue = Number(pivotElement.getAttribute("data-value")!);
+  const pivotValue = getBarValue(draft[high]);
 
   let i = low - 1;
 
   for (let j = low; j <= high - 1; j++) {
-    const currentValue = Number(draft[j].getAttribute("data-value")!);
+    const currentValue = getBarValue(draft[j]);
 
     if (currentValue < pivotValue) {
       i++;

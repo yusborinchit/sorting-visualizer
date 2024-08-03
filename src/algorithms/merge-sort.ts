@@ -1,6 +1,7 @@
 import { createBar } from "../components/bar";
 import { state } from "../state";
 import { delay } from "../utils/delay";
+import { getBarValue } from "../utils/get-bar-value";
 
 export async function animateMergeSort() {
   const { $bars } = state;
@@ -24,15 +25,15 @@ async function mergeSort(draft: Element[], start: number, end: number) {
 }
 
 async function merge(left: Element[], right: Element[], start: number) {
+  const { $bars, delay_ms } = state;
+
   const result = [];
   let left_index = 0;
   let right_index = 0;
 
-  const { $bars, delay_ms } = state;
-
   while (left_index < left.length && right_index < right.length) {
-    const left_value = Number(left[left_index].getAttribute("data-value")!);
-    const right_value = Number(right[right_index].getAttribute("data-value")!);
+    const left_value = getBarValue(left[left_index]);
+    const right_value = getBarValue(right[right_index]);
 
     if (left_value < right_value) {
       result.push(createBar(left_value));
@@ -44,13 +45,13 @@ async function merge(left: Element[], right: Element[], start: number) {
   }
 
   while (left_index < left.length) {
-    const left_value = Number(left[left_index].getAttribute("data-value")!);
+    const left_value = getBarValue(left[left_index]);
     result.push(createBar(left_value));
     left_index++;
   }
 
   while (right_index < right.length) {
-    const right_value = Number(right[right_index].getAttribute("data-value")!);
+    const right_value = getBarValue(right[right_index]);
     result.push(createBar(right_value));
     right_index++;
   }

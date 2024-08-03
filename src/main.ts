@@ -1,4 +1,6 @@
 import { animateBubbleSort } from "./algorithms/bubble-sort";
+import { animateHeapSort } from "./algorithms/heap-sort";
+import { animateInsertionSort } from "./algorithms/insertion-sort";
 import { animateMergeSort } from "./algorithms/merge-sort";
 import { animateQuickSort } from "./algorithms/quick-sort";
 import { createListOfBars } from "./components/list-of-bars";
@@ -44,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
       bubble: animateBubbleSort,
       merge: animateMergeSort,
       quick: animateQuickSort,
+      insertion: animateInsertionSort,
+      heap: animateHeapSort,
     };
 
     $range_length.disabled = true;
