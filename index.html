@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="/src/styles/globals.css" />
   </head>
   <body>
-    <header class="flex items-center justify-between gap-4 px-4 py-4">
-      <div class="flex flex-1 flex-col gap-1">
+    <header
+      class="flex items-center justify-between gap-4 overflow-auto px-4 py-4"
+    >
+      <div class="flex min-w-fit flex-1 flex-col gap-1">
         <label for="range-length" class="text-sm">Array Length: (100)</label>
         <input
           id="range-length"
@@ -26,7 +28,7 @@
           class="range range-xs"
         />
       </div>
-      <div class="flex flex-1 flex-col gap-1">
+      <div class="flex min-w-fit flex-1 flex-col gap-1">
         <label for="range-speed" class="text-sm">Sorting Speed: (10ms)</label>
         <input
           id="range-speed"
