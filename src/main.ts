@@ -4,6 +4,7 @@ import { animateHeapSort } from "./algorithms/heap-sort";
 import { animateInsertionSort } from "./algorithms/insertion-sort";
 import { animateMergeSort } from "./algorithms/merge-sort";
 import { animateQuickSort } from "./algorithms/quick-sort";
+import { animateShellSort } from "./algorithms/shell-sort";
 import { createListOfBars } from "./components/list-of-bars";
 import { state } from "./state";
 import { animateSortedBars } from "./utils/animate";
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       insertion: animateInsertionSort,
       heap: animateHeapSort,
       counting: animateCountingSort,
+      shell: animateShellSort,
     };
 
     $range_length.disabled = true;
