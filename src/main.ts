@@ -8,7 +8,7 @@ import { animateShellSort } from "./algorithms/shell-sort";
 import { createListOfBars } from "./components/list-of-bars";
 import { state } from "./state";
 import { animateSortedBars } from "./utils/animate";
-import { delay } from "./utils/delay";
+import { sendNotification } from "./utils/send-notification";
 
 document.addEventListener("DOMContentLoaded", () => {
     createListOfBars();
@@ -71,19 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const time_end = performance.now();
         const time_in_seconds = (time_end - time_start) / 1000;
 
-        $notification.setAttribute("data-show", "true");
-        $notification_time.textContent = time_in_seconds.toFixed(2);
-
-        await delay(3000);
-        $notification.setAttribute("data-show", "false");
-
-        await delay(250);
-        $notification.setAttribute("data-show", "");
-
         $range_length.disabled = false;
         $range_speed.disabled = false;
         $select_algorithm.disabled = true;
         $button_generate.disabled = false;
         $button_sort.disabled = true;
+
+        await sendNotification(time_in_seconds);
     });
 });
