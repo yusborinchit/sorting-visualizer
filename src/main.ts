@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     createListOfBars();
 
     const {
-        $notification,
-        $notification_time,
         $range_length,
         $range_speed,
         $select_algorithm,
