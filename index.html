@@ -1,61 +1,87 @@
 <!DOCTYPE html>
 <html lang="en" class="bg-base-300">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sort Algo Visualizer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/src/styles/globals.css" />
-  </head>
-  <body>
-    <header
-      class="flex items-center justify-between gap-4 overflow-auto px-4 py-4"
-    >
-      <div class="flex min-w-fit flex-1 flex-col gap-1">
-        <label for="range-length" class="text-sm">Array Length: (100)</label>
-        <input
-          id="range-length"
-          type="range"
-          min="10"
-          max="200"
-          value="100"
-          class="range range-xs"
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sort Algo Visualizer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap"
+            rel="stylesheet"
         />
-      </div>
-      <div class="flex min-w-fit flex-1 flex-col gap-1">
-        <label for="range-speed" class="text-sm">Sorting Speed: (10ms)</label>
-        <input
-          id="range-speed"
-          type="range"
-          min="10"
-          max="500"
-          value="10"
-          class="range range-xs"
-        />
-      </div>
-      <select id="select-algorithm" class="select select-bordered">
-        <option value="merge">Merge Sort</option>
-        <option value="bubble">Bubble Sort</option>
-        <option value="quick">Quick Sort</option>
-        <option value="insertion">Insertion Sort</option>
-        <option value="heap">Heap Sort</option>
-        <option value="counting">Counting Sort</option>
-        <option value="shell">Shell Sort</option>
-      </select>
-      <button id="btn-generate" class="btn btn-neutral uppercase">
-        Generate Array
-      </button>
-      <button id="btn-sort" class="btn btn-primary uppercase text-white">
-        Sort
-      </button>
-    </header>
-    <div id="bars" class="relative flex h-[500px] gap-px px-4"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+        <link rel="stylesheet" href="/src/styles/globals.css" />
+    </head>
+    <body class="relative min-h-screen overflow-hidden">
+        <header
+            class="flex items-center justify-between gap-4 overflow-auto px-4 py-4"
+        >
+            <div class="flex min-w-fit flex-1 flex-col gap-1">
+                <label for="range-length" class="text-sm">
+                    Array Length: (100)
+                </label>
+                <input
+                    id="range-length"
+                    type="range"
+                    min="10"
+                    max="200"
+                    value="100"
+                    class="range range-xs"
+                />
+            </div>
+            <div class="flex min-w-fit flex-1 flex-col gap-1">
+                <label for="range-speed" class="text-sm">
+                    Sorting Speed: (10ms)
+                </label>
+                <input
+                    id="range-speed"
+                    type="range"
+                    min="10"
+                    max="500"
+                    value="10"
+                    class="range range-xs"
+                />
+            </div>
+            <select id="select-algorithm" class="select select-bordered">
+                <option value="merge">Merge Sort</option>
+                <option value="bubble">Bubble Sort</option>
+                <option value="quick">Quick Sort</option>
+                <option value="insertion">Insertion Sort</option>
+                <option value="heap">Heap Sort</option>
+                <option value="counting">Counting Sort</option>
+                <option value="shell">Shell Sort</option>
+            </select>
+            <button id="btn-generate" class="btn btn-neutral uppercase">
+                Generate Array
+            </button>
+            <button id="btn-sort" class="btn btn-primary uppercase text-white">
+                Sort
+            </button>
+        </header>
+        <div id="bars" class="relative flex h-[500px] gap-px px-4"></div>
+        <div
+            id="notification"
+            class="absolute bottom-8 right-8 z-10 hidden items-center gap-2 rounded-md bg-info p-2.5 text-info-content/50 opacity-0 ring-[6px] ring-base-300 data-[show=false]:flex data-[show=true]:flex data-[show=false]:opacity-100 data-[show=true]:opacity-100 data-[show=false]:duration-500 data-[show=true]:duration-500 data-[show=true]:animate-in data-[show=false]:animate-out data-[show=false]:fade-out data-[show=true]:fade-in data-[show=false]:slide-out-to-top data-[show=true]:slide-in-from-bottom"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="size-9"
+            >
+                <g fill="none" stroke="currentColor" stroke-width="1.75">
+                    <circle cx="12" cy="12" r="9" />
+                    <path
+                        stroke-linecap="round"
+                        d="M16.5 12h-4.25a.25.25 0 0 1-.25-.25V8.5"
+                    />
+                </g>
+            </svg>
+            <p>
+                Sorting Completed in
+                <span id="notification-time" class="font-bold">0</span> Seconds
+            </p>
+        </div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
 </html>

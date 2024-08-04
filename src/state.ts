@@ -6,6 +6,8 @@ export const state = {
     delay_ms: 10,
 
     // Dom Elements
+    $notification: $<HTMLDivElement>("notification"),
+    $notification_time: $<HTMLSpanElement>("notification-time"),
     $bars: $<HTMLDivElement>("bars"),
     $range_length: $<HTMLInputElement>("range-length"),
     $range_speed: $<HTMLInputElement>("range-speed"),
